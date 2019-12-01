@@ -36,8 +36,11 @@ public class Booking {
     @SerializedName("created_at")
     @Expose
     public String createdAt;
+    @SerializedName("tickets")
+    @Expose
+    public ArrayList<Ticket> tickets = null;
 
-    public Booking(Integer id, Integer tripId, String startTime, String startPlace, String endPlace, ArrayList<Employee> employees, Integer price, String status, String busLicensePlate, String createdAt) {
+    public Booking(Integer id, Integer tripId, String startTime, String startPlace, String endPlace, ArrayList<Employee> employees, Integer price, String status, String busLicensePlate, String createdAt, ArrayList<Ticket> tickets) {
         this.id = id;
         this.tripId = tripId;
         this.startTime = startTime;
@@ -48,6 +51,7 @@ public class Booking {
         this.status = status;
         this.busLicensePlate = busLicensePlate;
         this.createdAt = createdAt;
+        this.tickets = tickets;
     }
 
     public Integer getId() {
@@ -128,6 +132,14 @@ public class Booking {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public ArrayList<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(ArrayList<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
 

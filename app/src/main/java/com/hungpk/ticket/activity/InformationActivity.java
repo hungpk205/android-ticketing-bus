@@ -23,6 +23,7 @@ public class InformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
         setup();
+        setData();
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +34,16 @@ public class InformationActivity extends AppCompatActivity {
             EventButton();
         } else {
             CheckConnection.ShowToast_Short(getApplicationContext(), "Kiểm tra lại kết nối!");
+        }
+    }
+
+    private void setData() {
+        SharedPreferences inforCustomer = getSharedPreferences(Constant.SHARED_NAME, Context.MODE_PRIVATE);
+        String name = inforCustomer.getString(Constant.SHARED_FULL_NAME,"");
+        String phone = inforCustomer.getString(Constant.SHARED_SDT,"");
+        if (!name.isEmpty() && !phone.isEmpty()){
+            edit_text_fullname.setText(name);
+            edit_text_phone.setText(phone);
         }
     }
 

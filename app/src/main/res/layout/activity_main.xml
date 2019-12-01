@@ -22,7 +22,9 @@
                 android:background="@android:color/holo_blue_light"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
+
             </androidx.appcompat.widget.Toolbar>
+
 
             <ViewFlipper
                 android:id="@+id/view_flipper"
@@ -46,6 +48,7 @@
                     android:layout_height="wrap_content">
                 </TextView>
                 <androidx.recyclerview.widget.RecyclerView
+                    android:layout_margin="8dp"
                     android:scrollbars="vertical"
                     android:id="@+id/recycler_home"
                     android:layout_width="match_parent"
