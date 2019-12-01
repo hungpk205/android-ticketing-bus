@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,6 +15,7 @@ import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -23,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
 import com.hungpk.ticket.activity.BookingActivity;
 import com.hungpk.ticket.activity.InformationActivity;
+import com.hungpk.ticket.activity.SearchActivity;
 import com.hungpk.ticket.adapter.MenuAdapter;
 import com.hungpk.ticket.adapter.TripAdapter;
 import com.hungpk.ticket.data.remote.APIService;
@@ -72,6 +75,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.search_trip,menu);
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.action_search){
+                    Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                    startActivity(intent);
+                }
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private void CatchOnClickMenu() {
         infoCustomer = this.getSharedPreferences(Constant.SHARED_NAME, Context.MODE_PRIVATE);
         listViewHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -89,12 +110,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         if (CheckConnection.haveNetworkConnection(getApplicationContext())) {
-                            if (infoCustomer.getString(Constant.SHARED_FULL_NAME,"").isEmpty()) {
+//                            if (infoCustomer.getString(Constant.SHARED_FULL_NAME,"").isEmpty()) {
+//                                Intent intent = new Intent(MainActivity.this, InformationActivity.class);
+//                                startActivity(intent);
+//                            } else {
                                 Intent intent = new Intent(MainActivity.this, InformationActivity.class);
                                 startActivity(intent);
-                            } else {
-                                startActivity(BookingActivity.getBookingActivityIntent(getApplicationContext(), infoCustomer.getString(Constant.SHARED_SDT,""), infoCustomer.getString(Constant.SHARED_FULL_NAME, "")));
-                            }
+//                                startActivity(BookingActivity.getBookingActivityIntent(getApplicationContext(), infoCustomer.getString(Constant.SHARED_SDT,""), infoCustomer.getString(Constant.SHARED_FULL_NAME, "")));
+//                            }
                         } else {
                             CheckConnection.ShowToast_Short(getApplicationContext(), "Bạn hãy kiểm tra lại kết nối");
                         }
@@ -111,7 +134,10 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<Trip>>() {
             @Override
             public void onResponse(Call<ArrayList<Trip>> call, Response<ArrayList<Trip>> response) {
-                tripList = response.body();
+                tripList.clear();
+                assert response.body() != null;
+                tripList.addAll(response.body());
+
                 tripAdapter.setListTrip(tripList);
             }
 

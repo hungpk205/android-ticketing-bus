@@ -10,63 +10,66 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_margin="5dp"
-                    android:id="@+id/text_view_start_place"
-                    android:text="Start Place"
-                    android:textColor="#2196F3"
-                    android:textSize="18sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_margin="5dp"
-                    android:textColor="#FF5722"
-                    android:text="End Place"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:id="@+id/text_view_end_place"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_margin="5dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#4CAF50"
-                    android:text="Start time"
-                    android:id="@+id/text_view_start_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_margin="5dp"
-                    android:textSize="16sp"
-                    android:text="Price"
-                    android:id="@+id/text_view_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_margin="5dp"
-                    android:textColor="#555454"
-                    android:textSize="18sp"
-                    android:id="@+id/text_view_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Status" />
-                <TextView
-                    android:textStyle="italic"
-                    android:textSize="16dp"
-                    android:text="Created at"
-                    android:id="@+id/text_view_created_at"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+            <TextView
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:id="@+id/text_view_start_place"
+                android:text="Start Place"
+                android:textColor="#2196F3"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:textColor="#FF5722"
+                android:text="End Place"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:id="@+id/text_view_end_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:text="Start time"
+                android:id="@+id/text_view_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:textSize="16sp"
+                android:text="Price"
+                android:id="@+id/text_view_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_margin="5dp"
+                android:textColor="#555454"
+                android:textSize="18sp"
+                android:id="@+id/text_view_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tickets" />
+            <TextView
+                android:layout_margin="5dp"
+                android:textColor="#555454"
+                android:textSize="18sp"
+                android:id="@+id/text_view_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status" />
+            <TextView
+                android:textStyle="italic"
+                android:textSize="16dp"
+                android:text="Created at"
+                android:id="@+id/text_view_created_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
