@@ -38,7 +38,7 @@ public class InformationActivity extends AppCompatActivity {
     }
 
     private void setData() {
-        SharedPreferences inforCustomer = getSharedPreferences(Constant.SHARED_NAME, Context.MODE_PRIVATE);
+        SharedPreferences inforCustomer = getSharedPreferences(Constant.SHARED_CUSTOMER, Context.MODE_PRIVATE);
         String name = inforCustomer.getString(Constant.SHARED_FULL_NAME,"");
         String phone = inforCustomer.getString(Constant.SHARED_SDT,"");
         if (!name.isEmpty() && !phone.isEmpty()){
@@ -55,7 +55,7 @@ public class InformationActivity extends AppCompatActivity {
                 String phone = edit_text_phone.getText().toString().trim();
                 if (fullname.length()>0 && phone.length()> 0){
                     //Save full name and phone
-                    SharedPreferences infoCustomer = getSharedPreferences(Constant.SHARED_NAME, Context.MODE_PRIVATE);
+                    SharedPreferences infoCustomer = getSharedPreferences(Constant.SHARED_CUSTOMER, Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = infoCustomer.edit();
                     editor.putString(Constant.SHARED_SDT, phone);
                     editor.putString(Constant.SHARED_FULL_NAME, fullname);

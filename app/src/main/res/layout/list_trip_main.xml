@@ -10,44 +10,30 @@
         android:layout_height="match_parent">
 
         <FrameLayout
+            android:background="@drawable/border"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:paddingStart="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text_view_name"
+                    android:id="@+id/text_view_start_to_end_place"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Name trip"
-                    android:textColor="#101010"
-                    android:textSize="20sp" />
+                    android:text="Start to end place"
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/text_view_start_place"
+                    android:id="@+id/text_view_start_to_end_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Start place"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/text_view_end_place"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="End place"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/text_view_start_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start time"
-                    android:textSize="18sp" />
+                    android:text="Start to end time"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/text_view_price"
@@ -56,7 +42,7 @@
                     android:gravity="center"
                     android:text="Price"
                     android:textColor="#f20"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/text_view_slot"
@@ -64,7 +50,19 @@
                     android:layout_height="wrap_content"
                     android:text="Slot"
                     android:textColor="#23E72A"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/text_view_license_plate_bus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="License plate"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/text_view_name_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Company"
+                    android:textSize="14sp" />
             </LinearLayout>
         </FrameLayout>
     </androidx.cardview.widget.CardView>

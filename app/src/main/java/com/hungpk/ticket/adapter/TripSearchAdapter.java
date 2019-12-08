@@ -11,6 +11,7 @@ import com.hungpk.ticket.R;
 import com.hungpk.ticket.model.Ticket;
 import com.hungpk.ticket.model.Trip;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class TripSearchAdapter extends BaseAdapter {
@@ -62,7 +63,8 @@ public class TripSearchAdapter extends BaseAdapter {
         viewHolder.txtStartPlace.setText("Điểm đi: " + trip.getStartPlace());
         viewHolder.txtEndPlace.setText("Điểm đến: " + trip.getEndPlace());
         viewHolder.txtStartTime.setText("Giờ chạy: " + trip.getStartTime());
-        viewHolder.txtPrice.setText("Giá: " + trip.getPrice());
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        viewHolder.txtPrice.setText("Giá: " + decimalFormat.format(trip.getPrice()) + " Đ");
         int count = 0;
         ArrayList<Ticket> listTicket = trip.getTickets();
         for (Ticket ticket: listTicket){

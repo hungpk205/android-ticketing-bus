@@ -3,7 +3,9 @@ package com.hungpk.ticket.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     @SerializedName("name")
     @Expose
     public String name;

@@ -1,5 +1,6 @@
 package com.hungpk.ticket;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Menu> listMenu;
     ArrayList<String> listSlide;
     MenuAdapter menuAdapter;
+    private ProgressDialog progressDialog;
     private APIService mApiService;
     ArrayList<Trip> tripList;
     private TripAdapter tripAdapter;
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void CatchOnClickMenu() {
-        infoCustomer = this.getSharedPreferences(Constant.SHARED_NAME, Context.MODE_PRIVATE);
+        infoCustomer = this.getSharedPreferences(Constant.SHARED_CUSTOMER, Context.MODE_PRIVATE);
         listViewHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -134,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<Trip>>() {
             @Override
             public void onResponse(Call<ArrayList<Trip>> call, Response<ArrayList<Trip>> response) {
+                progressDialog.dismiss();
+
                 tripList.clear();
                 assert response.body() != null;
                 tripList.addAll(response.body());
@@ -150,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void ActionViewFlipper() {
         listSlide = new ArrayList<>();
-        listSlide.add("https://i.pinimg.com/564x/39/2d/25/392d2562cc0e8b17248462fe429cd12b.jpg");
-        listSlide.add("https://i.pinimg.com/236x/1c/e6/a3/1ce6a34f55d5898c763c7c24b5ccd155.jpg");
-        listSlide.add("https://i.pinimg.com/564x/f6/43/e0/f643e069db90b3ac9d307ed59669b1a2.jpg");
+        listSlide.add("https://0euaka.dm.files.1drv.com/y4mjIxiWpazLLRwqOAAtM3ruNShyJIB1rncwwSJ0jlHWysWzWBYM7P_SPsfGqm_M8arcRx96RA-UZTTy34LNnOBl5uK8u8pg7pfTk4-ZEyojHmflUQeUVZJbPj8FedSEK4JzBCoTUUz96on6F61xRJKS20pn_Ou8LwGQioWYO4kidwDeLEwSV3ca69vOz5jk3Qb4kcJfwvnryk7292AkYvOFw");
+        listSlide.add("https://nngwtq.dm.files.1drv.com/y4mteN22m_uL8BrGtNP3r-kFLcgXQDRgsmaCWkdRu7iyBmGaMsRzjXC1TGGquksdezy30NSNBmbDceyaQ5CWcw1oTUA-sx3tI0YT3heTYwsCXMPQHW4PbpUlaIJQ0NlFsHVh3CGFJDnUd0PXNA0NDDz-SJiFkRc2xWxJoki64985NP1Of2qKLXe3EJYxFybAYpNDGHCyX5AHviZQMbwlgj-yw");
+        listSlide.add("https://nnevqq.dm.files.1drv.com/y4m7K0v01_hU6HbGCP1EK2FG5CUV1BjTJ0mhhhpeuEphciNO0uPtixc3TTJ67dL0CqM6moKO-N09lagRmzzd0FVzWO28nLfxQQZG_fvSS5v72Y3tiO0u8DUx9JyfRzL2lve8wsU4JTZfammkVYFVjdsyrMTQc2Y-3tA_z0JuQdHBLMZjvUeeqEjyd63AqpgKSGFfVPP_dH3fhYwQRNwHQRwtg");
         for (int j = 0; j < listSlide.size(); j++) {
             ImageView imageView = new ImageView(getApplicationContext());
             Picasso.get().load(listSlide.get(j)).into(imageView);
@@ -182,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setup() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.show();
         toolbar = (Toolbar) findViewById(R.id.toolbar_home);
         viewFlipper = (ViewFlipper) findViewById(R.id.view_flipper);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_home);

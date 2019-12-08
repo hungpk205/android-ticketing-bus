@@ -3,7 +3,9 @@ package com.hungpk.ticket.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
     @SerializedName("ticket_id")
     @Expose
     private Integer ticketId;
