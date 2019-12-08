@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background= "@color/colorBackground"
-    tools:context=".activity.InformationActivity">
+    tools:context=".activity.ResponseBookingActivity">
 
     <LinearLayout
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical"
         android:gravity="center"
         android:layout_marginBottom="80dp"
@@ -25,31 +25,27 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="5dp"
-            android:text="Thông tin đặt vé"
+            android:text="Thông báo"
             android:textSize="30sp"
             android:textStyle="bold" />
-        <com.google.android.material.textfield.TextInputLayout
+
+        <LinearLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/edit_text_fullname"
-                android:inputType="text"
-                android:hint="Nhập họ tên"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="35dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/edit_text_phone"
-                android:inputType="phone"
-                android:hint="Nhập số điện thoại"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/text_view_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:paddingEnd="0dp"
+                android:textSize="20dp">
+            </TextView>
+        </LinearLayout>
+
         <LinearLayout
             android:gravity="center"
             android:orientation="horizontal"
@@ -57,22 +53,16 @@
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <Button
-                android:layout_marginRight="30dp"
-                android:padding="10dp"
-                android:id="@+id/button_cancel"
-                android:text="Hủy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
             <Button
                 android:background="@color/colorPrimary"
                 android:padding="10dp"
-                android:id="@+id/button_confirm"
-                android:text="Xác nhận"
+                android:id="@+id/button_ok"
+                android:text="OK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

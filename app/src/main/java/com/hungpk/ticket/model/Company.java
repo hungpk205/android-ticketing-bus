@@ -3,17 +3,39 @@ package com.hungpk.ticket.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Company {
+import java.io.Serializable;
+
+public class Company implements Serializable {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("banner")
+    @SerializedName("phone")
     @Expose
-    private String image;
+    private String phone;
+    @SerializedName("address")
+    @Expose
+    private String address;
 
-    public Company(String name, String image) {
+    public Company(String name, String phone, String address) {
         this.name = name;
-        this.image = image;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getName() {
@@ -24,11 +46,4 @@ public class Company {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 }

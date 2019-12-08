@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.TicketBookingActivity">
 
     <LinearLayout
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/border"
@@ -22,7 +24,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="5dp"
-            android:text="Tìm kiếm chuyến đi"
+            android:text="Thông tin đặt vé"
             android:textSize="30sp"
             android:textStyle="bold" />
         <com.google.android.material.textfield.TextInputLayout
@@ -31,9 +33,9 @@
             android:layout_height="wrap_content">
             <EditText
                 android:padding="15dp"
-                android:id="@+id/edit_text_start_place"
+                android:id="@+id/edit_text_fullname_booking"
                 android:inputType="text"
-                android:hint="Nhập điểm đi"
+                android:hint="Họ và tên"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -43,9 +45,9 @@
             android:layout_height="wrap_content">
             <EditText
                 android:padding="15dp"
-                android:id="@+id/edit_text_end_place"
-                android:inputType="text"
-                android:hint="Nhập điểm đến"
+                android:id="@+id/edit_text_phone_booking"
+                android:inputType="phone"
+                android:hint="Số điện thoại"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,31 +58,69 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/edit_text_select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Chọn ngày đi"
+                android:text="Vé đã chọn: "
                 android:padding="15dp"
                 android:paddingEnd="0dp"
                 android:textSize="20dp">
             </TextView>
-            <ImageView
-                android:src="@drawable/calendar"
-                android:id="@+id/img_select_date"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_width="100px"
-                android:layout_height="100px">
-            </ImageView>
+
             <TextView
                 android:padding="15dp"
                 android:textSize="20dp"
-                android:visibility="invisible"
-                android:id="@+id/value_date"
+                android:id="@+id/text_view_list_ticket_selected"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </TextView>
         </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lộ trình: "
+                android:padding="15dp"
+                android:paddingEnd="0dp"
+                android:textSize="20dp">
+            </TextView>
+
+            <TextView
+                android:padding="15dp"
+                android:textSize="20dp"
+                android:id="@+id/text_view_start_end_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thời gian: "
+                android:padding="15dp"
+                android:paddingEnd="0dp"
+                android:textSize="20dp">
+            </TextView>
+
+            <TextView
+                android:padding="15dp"
+                android:textSize="20dp"
+                android:id="@+id/text_view_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+        </LinearLayout>
+
 
         <LinearLayout
             android:gravity="center"
@@ -92,7 +132,7 @@
             <Button
                 android:layout_marginRight="30dp"
                 android:padding="10dp"
-                android:id="@+id/button_cancel_search"
+                android:id="@+id/button_cancel_booking"
                 android:text="Hủy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -100,8 +140,8 @@
             <Button
                 android:background="@color/colorPrimary"
                 android:padding="10dp"
-                android:id="@+id/button_search"
-                android:text="Tìm kiếm"
+                android:id="@+id/button_submit_booking"
+                android:text="Xác nhận"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

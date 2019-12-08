@@ -3,9 +3,10 @@ package com.hungpk.ticket.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Trip {
+public class Trip implements Serializable {
     @SerializedName("trip_id")
     @Expose
     private Integer tripId;
@@ -15,12 +16,18 @@ public class Trip {
     @SerializedName("start_time")
     @Expose
     private String startTime;
+    @SerializedName("end_time")
+    @Expose
+    private String endTime;
     @SerializedName("start_place")
     @Expose
     private String startPlace;
     @SerializedName("end_place")
     @Expose
     private String endPlace;
+    @SerializedName("detail_route")
+    @Expose
+    private String detailRoute;
     @SerializedName("driver_major")
     @Expose
     private String driverMajor;
@@ -36,21 +43,35 @@ public class Trip {
     @SerializedName("bus_license_plate")
     @Expose
     private String busLicensePlate;
+    @SerializedName("name_company")
+    @Expose
+    private String nameCompany;
+    @SerializedName("phone_company")
+    @Expose
+    private String phoneCompany;
+    @SerializedName("address_company")
+    @Expose
+    private String addressCompany;
     @SerializedName("tickets")
     @Expose
     private ArrayList<Ticket> tickets = null;
 
-    public Trip(Integer tripId, String name, String startTime, String startPlace, String endPlace, String driverMajor, String driverMinor, Integer price, String status, String busLicensePlate, ArrayList<Ticket> tickets) {
+    public Trip(Integer tripId, String name, String startTime, String endTime, String startPlace, String endPlace, String detailRoute, String driverMajor, String driverMinor, Integer price, String status, String busLicensePlate, String nameCompany, String phoneCompany, String addressCompany, ArrayList<Ticket> tickets) {
         this.tripId = tripId;
         this.name = name;
         this.startTime = startTime;
+        this.endTime = endTime;
         this.startPlace = startPlace;
         this.endPlace = endPlace;
+        this.detailRoute = detailRoute;
         this.driverMajor = driverMajor;
         this.driverMinor = driverMinor;
         this.price = price;
         this.status = status;
         this.busLicensePlate = busLicensePlate;
+        this.nameCompany = nameCompany;
+        this.phoneCompany = phoneCompany;
+        this.addressCompany = addressCompany;
         this.tickets = tickets;
     }
 
@@ -78,6 +99,14 @@ public class Trip {
         this.startTime = startTime;
     }
 
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
     public String getStartPlace() {
         return startPlace;
     }
@@ -92,6 +121,14 @@ public class Trip {
 
     public void setEndPlace(String endPlace) {
         this.endPlace = endPlace;
+    }
+
+    public String getDetailRoute() {
+        return detailRoute;
+    }
+
+    public void setDetailRoute(String detailRoute) {
+        this.detailRoute = detailRoute;
     }
 
     public String getDriverMajor() {
@@ -132,6 +169,30 @@ public class Trip {
 
     public void setBusLicensePlate(String busLicensePlate) {
         this.busLicensePlate = busLicensePlate;
+    }
+
+    public String getNameCompany() {
+        return nameCompany;
+    }
+
+    public void setNameCompany(String nameCompany) {
+        this.nameCompany = nameCompany;
+    }
+
+    public String getPhoneCompany() {
+        return phoneCompany;
+    }
+
+    public void setPhoneCompany(String phoneCompany) {
+        this.phoneCompany = phoneCompany;
+    }
+
+    public String getAddressCompany() {
+        return addressCompany;
+    }
+
+    public void setAddressCompany(String addressCompany) {
+        this.addressCompany = addressCompany;
     }
 
     public ArrayList<Ticket> getTickets() {

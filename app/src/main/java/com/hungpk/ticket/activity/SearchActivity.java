@@ -50,9 +50,11 @@ public class SearchActivity extends AppCompatActivity {
                 String start_place = txtStartPlace.getText().toString().trim();
                 String end_place = txtEndPlace.getText().toString().trim();
                 String start_time = txtValueDate.getText().toString().trim();
-
-                startActivity(TripSearchActivity.getTripSearchActivityIntent(getApplicationContext(), start_place, end_place, start_time));
-
+                if (start_place.equals("") || end_place.equals("") || start_time.equals("")){
+                    CheckConnection.ShowToast_Short(getApplicationContext(), "Vui lòng nhập đầy đủ thông tin");
+                } else {
+                    startActivity(TripSearchActivity.getTripSearchActivityIntent(getApplicationContext(), start_place, end_place, start_time));
+                }
             }
         });
     }

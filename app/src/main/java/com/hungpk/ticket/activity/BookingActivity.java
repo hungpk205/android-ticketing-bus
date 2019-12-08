@@ -1,10 +1,12 @@
 package com.hungpk.ticket.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,6 +36,7 @@ public class BookingActivity extends AppCompatActivity {
     ArrayList<Booking> listBooking;
     TextView txtNoData;
     private APIService mApiService;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,18 @@ public class BookingActivity extends AppCompatActivity {
         setup();
         ActionToolBar();
         GetDataBooking();
+        GetDetailBooking();
 
+    }
+
+    private void GetDetailBooking() {
+        listViewBooking.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Booking booking = listBooking.get(i);
+                startActivity(DetailBookingActivity.getDetailBookingActivityIntent(getApplicationContext(), booking));
+            }
+        });
     }
 
     private void GetDataBooking() {
@@ -57,6 +71,7 @@ public class BookingActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<Booking>>() {
             @Override
             public void onResponse(Call<ArrayList<Booking>> call, Response<ArrayList<Booking>> response) {
+                progressDialog.dismiss();
                 listBooking.clear();
                 assert response.body() != null;
                 listBooking.addAll(response.body());
@@ -92,6 +107,8 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void setup() {
+        progressDialog = new ProgressDialog(BookingActivity.this);
+        progressDialog.show();
         toolbarBooking = (Toolbar) findViewById(R.id.toolbar_booking);
         listViewBooking = (ListView) findViewById(R.id.list_view_booking);
         txtNoData = findViewById(R.id.textViewNoData);
